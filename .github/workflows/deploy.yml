@@ -25,7 +25,6 @@ jobs:
           npm install -g yarn
           yarn install --frozen-lockfile
           yarn build
-          yarn export
 
       # 4️⃣ AWS 인증 정보 세팅
       - name: Configure AWS credentials
