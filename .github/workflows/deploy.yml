@@ -1,0 +1,50 @@
+name: Next.js Static Export & Deploy to S3
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Git checkout
+      - name: Checkout source code
+        uses: actions/checkout@v2
+
+      # 2️⃣ Node.js 버전 설정
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      # 3️⃣ Dependencies 설치 & Build & Export
+      - name: Install & Build & Export
+        run: |
+          npm install -g yarn
+          yarn install --frozen-lockfile
+          yarn build
+          yarn export
+
+      # 4️⃣ AWS 인증 정보 세팅
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      # 5️⃣ S3에 업로드
+      - name: Deploy to S3
+        run: |
+          aws s3 sync ./${{ secrets.BUILD_DIRECTORY }} s3://${{ secrets.AWS_S3_BUCKET_NAME }} \
+            --acl public-read \
+            --delete
+
+      # 6️⃣ CloudFront 캐시 무효화
+      - name: Invalidate CloudFront Cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
