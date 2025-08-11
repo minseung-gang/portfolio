@@ -1,26 +1,147 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import 'tailwindcss';
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'pretendard', sans-serif;
+  background: #000108;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.orbitron {
+  font-family: 'Orbitron', sans-serif;
+  font-optical-sizing: auto;
+}
+.pretendard {
+  font-family: 'Pretendard', sans-serif;
+  font-optical-sizing: auto;
+}
+
+@layer theme, base, components, utilities;
+
+@theme {
+  --container-container: 1200px;
+  --color-primary: #3b82f6;
+}
+
+/*component에 들어갈 css 우선 적용*/
+@layer components {
+  .card {
+    position: relative;
+    transition: top 0.3s ease-out;
+    top: 0;
+    cursor: pointer;
+  }
+
+  .card:hover {
+    top: -20px;
+    animation: hover-float 1.5s ease-in-out infinite;
+  }
+}
+
+svg:hover #svg {
+  fill: var(--color-primary);
+}
+@keyframes hover-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+.star-rotate {
+  animation: rotate 1s ease-in-out infinite;
+}
+
+.star-rotate-reverse {
+  animation: rotate-reverse 1s ease-in-out infinite;
+}
+
+@-webkit-keyframes circle-rise {
+  from {
+    top: -1.5rem;
+  }
+  to {
+    top: -1rem;
+  }
+}
+
+@keyframes circle-float {
+  from {
+    top: 0;
+  }
+  to {
+    top: -1.5rem;
+  }
+}
+
+@keyframes rotate1 {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rotate2 {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(20deg);
+  }
+  60% {
+    transform: rotate(20deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rotate3 {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-10deg);
+  }
+  70% {
+    transform: rotate(-10deg);
+  }
+  85% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rotate4 {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(25deg);
+  }
+  80% {
+    transform: rotate(25deg);
+  }
+  95% {
+    transform: rotate(0deg);
+  }
 }
