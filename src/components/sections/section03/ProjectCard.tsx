@@ -1,5 +1,4 @@
 import useModalStore from '@/stores/useModalStore';
-import { ProjectRoute } from '@/types/project';
 
 import React from 'react';
 
@@ -10,16 +9,16 @@ interface ProjectCardProps {
     tags: string[];
     image: string;
   };
-  projectKey: ProjectRoute;
+  projectId: string;
 }
 
-const ProjectCard = ({ project, projectKey }: ProjectCardProps) => {
+const ProjectCard = ({ project, projectId }: ProjectCardProps) => {
   const { openModal } = useModalStore();
 
   return (
     <div
       className='card relative overflow-hidden rounded-md border-1 border-[#bebebe] shadow-[2px_2px_8px_2px_rgba(0,0,0,0.2)]'
-      onClick={() => openModal({ type: 'projectDetail', props: projectKey })}
+      onClick={() => openModal({ type: 'projectDetail', props: { projectId } })}
     >
       <div className='grid grid-rows-[1fr_1.2fr]'>
         <img src={project.image} alt={project.title} width={329} height={185} />
