@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { DECORATE_STARS } from '@/constants/animation';
+import { DECORATE_STARS } from '@/constants/hero';
 
 const Hero = () => {
   return (
