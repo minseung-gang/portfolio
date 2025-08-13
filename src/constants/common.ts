@@ -9,9 +9,10 @@ export const IMAGES_ROUTE = {
   },
   profile: '/images/profile.webp',
   project: {
-    happyPill: '/images/project/happyPill.webp',
-    georim: '/images/project/georim.webp',
-    pullbatte: '/images/project/pullbatte.webp',
+    happyPill: '/images/project/happyPill/happyPill_thumbnail.webp',
+    georim: '/images/project/georim/georim_thumbnail.webp',
+    pullbatte: '/images/project/pullbatte/pullbatte_thumbnail.webp',
+    portfolio: '/images/project/portfolio/portfolio_thumbnail.webp',
   },
 };
 
