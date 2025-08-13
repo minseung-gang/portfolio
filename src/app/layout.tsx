@@ -5,6 +5,7 @@ import SmoothScrollProvider from '@/components/common/SmoothScrollProvider';
 import Header from '@/components/common/Header';
 import Contact from '@/components/common/Contact';
 import localFont from 'next/font/local';
+import GlobalModal from '@/components/modal/Global';
 
 const pretendard = localFont({
   src: '../../public/fonts/pretendard/PretendardVariable.woff2',
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Header />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
         <Contact />
+        <GlobalModal />
       </body>
     </html>
   );
