@@ -1,3 +1,5 @@
+'use client';
+
 import ReactDOM from 'react-dom';
 
 import type { ModalItem, ModalPropsMap, ModalType } from '@/types/modal';
