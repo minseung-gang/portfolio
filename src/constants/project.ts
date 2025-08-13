@@ -18,11 +18,18 @@ export const PROJECT_DATA = [
     image: IMAGES_ROUTE.project.georim,
   },
   {
-    id: 'pulbatte',
+    id: 'pullbatte',
     title: '풀밭에',
     description: '식물 정보를 나누고 반려식물을 추천받아 일상을 기록할 수 있는 공간입니다.',
     tags: ['반응형', '사이드'],
     image: IMAGES_ROUTE.project.pullbatte,
+  },
+  {
+    id: 'portfolio',
+    title: '포트폴리오 사이트',
+    description: '프론트엔드 개발자 강민승의 포트폴리오 사이트입니다.',
+    tags: ['반응형', '사이드'],
+    image: IMAGES_ROUTE.project.portfolio,
   },
 ];
 
