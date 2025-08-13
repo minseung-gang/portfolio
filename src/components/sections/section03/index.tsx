@@ -2,7 +2,7 @@ import { useScrollStore } from '@/stores/useScrollStore';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import React, { useEffect, useRef } from 'react';
 import ProjectCard from './ProjectCard';
-import { PROJECT_DATA, PROJECT_ROUTE } from '@/constants/project';
+import { PROJECT_DATA } from '@/constants/project';
 
 const Index = () => {
   const sectionRef = useRef(null);
@@ -50,8 +50,9 @@ const Index = () => {
               <h2 className='mb-15 text-[clamp(22px,2vw,34px)] font-bold'>프로젝트</h2>
               <div className='grid grid-cols-4 gap-x-5'>
                 {PROJECT_DATA.map((project) => {
-                  const route = PROJECT_ROUTE[project.id];
-                  return <ProjectCard key={project.title} project={project} projectKey={route} />;
+                  return (
+                    <ProjectCard key={project.title} project={project} projectId={project.id} />
+                  );
                 })}
               </div>
             </div>
