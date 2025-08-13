@@ -38,7 +38,7 @@ export const PROJECT_ROUTE: Record<string, ProjectRoute> = {
   pulbatte: {
     github: 'https://github.com/minseung-gang/PULBATTE_FE',
   },
-  portpolio: {
+  portfolio: {
     domain: 'https://minseung-portfolio.com/',
     github: 'https://github.com/minseung-gang/portfolio',
   },
