@@ -7,3 +7,4 @@ export { default as Nextjs } from '@/components/icons/Nextjs';
 export { default as Nodejs } from '@/components/icons/Nodejs';
 export { default as React } from '@/components/icons/React';
 export { default as Typescript } from '@/components/icons/Typescript';
+export { default as Link } from '@/components/icons/Link';
