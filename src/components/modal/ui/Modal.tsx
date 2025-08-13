@@ -1,4 +1,5 @@
-// 1) 파일 최상단
+'use client';
+
 import { createContext, useContext } from 'react';
 
 import ModalBackDrop from './ModalBackDrop';
@@ -40,7 +41,7 @@ export const useModalContext = () => {
 const Modal: React.FC<ModalProps> & ModalCompoundProps = ({ className, children }) => {
   const { openModal, closeModal } = useModal();
 
-  const modalBaseCls = `fixed inset-0 z-50 pointer-events-auto`;
+  const modalBaseCls = `fixed inset-0 z-70 pointer-events-auto`;
   const contextValue = {
     openModal,
     closeModal,
@@ -48,7 +49,17 @@ const Modal: React.FC<ModalProps> & ModalCompoundProps = ({ className, children 
 
   return (
     <ModalContext.Provider value={contextValue}>
-      <div className={cn(modalBaseCls, className)} role='dialog' aria-modal='true'>
+      <div
+        onWheel={(e) => {
+          e.stopPropagation();
+        }}
+        onTouchMove={(e) => {
+          e.stopPropagation();
+        }}
+        className={cn(modalBaseCls, className)}
+        role='dialog'
+        aria-modal='true'
+      >
         {children}
       </div>
     </ModalContext.Provider>
