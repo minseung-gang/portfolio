@@ -1,6 +1,6 @@
 import { useModalContext } from './Modal';
 
-import { cn } from '@/utils/classNames';
+import { cn } from '@/utils/cn';
 
 interface ModalBackdropProps {
   className?: string;
