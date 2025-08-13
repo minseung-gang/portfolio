@@ -13,10 +13,11 @@ const pretendard = localFont({
   weight: '45 920',
   variable: '--font-pretendard',
 });
+
 const orbitron = Orbitron({
   subsets: ['latin'],
   variable: '--font-orbitron',
-  weight: ['400', '700'], // 필요한 weight만 선택 가능
+  weight: ['400', '700'],
 });
 export const metadata: Metadata = {
   title: '강민승 포트폴리오',
