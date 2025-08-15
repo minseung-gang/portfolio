@@ -9,11 +9,11 @@ const Header = () => {
   return (
     <header
       className={cn(
-        'max-w-container bg-opacity-40 fixed top-0 left-1/2 z-10 w-full -translate-x-1/2 bg-[rgba(0,1,8,0.7)]',
+        'max-w-container bg-opacity-40 fixed top-0 left-1/2 z-10 w-full -translate-x-1/2 px-5',
         isDarkSection && 'mix-blend-difference',
       )}
     >
-      <div className='e relative z-6 pt-3'>
+      <div className='relative z-6 pt-3'>
         <h1 className='text-[clamp(11px,1vw,14px)] font-medium text-white'>프론트엔드 - 강민승</h1>
       </div>
       <div className='relative mt-1.5 h-[1px] w-full bg-[#727272]'>
