@@ -41,7 +41,7 @@ export const useModalContext = () => {
 const Modal: React.FC<ModalProps> & ModalCompoundProps = ({ className, children }) => {
   const { openModal, closeModal } = useModal();
 
-  const modalBaseCls = `fixed inset-0 z-70 pointer-events-auto`;
+  const modalBaseCls = `fixed inset-0 z-70 pointer-events-auto overflow-visible`;
   const contextValue = {
     openModal,
     closeModal,
