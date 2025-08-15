@@ -6,9 +6,11 @@ import type { ModalItem, ModalPropsMap, ModalType } from '@/types/modal';
 
 import useModalStore from '@/stores/useModalStore';
 import ProjectDetailModal from './ProjectDetailModal';
+import ImagePreviewModal from './ImagePreviewModal';
 
 const MODAL_COMPONENTS = {
   projectDetail: ProjectDetailModal,
+  imagePreview: ImagePreviewModal,
 } as const;
 
 const renderModal = <T extends ModalType>(modal: ModalItem<T>, index: number) => {
