@@ -5,20 +5,18 @@ import Modal from '../modal/ui/Modal';
 
 const OrientationGuide = () => {
   const [shouldShow, setShouldShow] = useState(false);
-  console.log(shouldShow, '뭐니');
+
   useEffect(() => {
     const checkOrientation = () => {
-      const isMobile = window.innerWidth <= 768; // 또는 다른 기준점
+      const isMobile = window.innerWidth <= 768;
       const isPortrait = window.innerHeight > window.innerWidth;
 
       // 모바일이면서 세로 모드일 때만 표시
       setShouldShow(isMobile && isPortrait);
     };
 
-    // 초기 체크
     checkOrientation();
 
-    // 이벤트 리스너
     window.addEventListener('resize', checkOrientation);
     window.addEventListener('orientationchange', checkOrientation);
 
