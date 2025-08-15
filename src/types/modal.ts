@@ -3,6 +3,9 @@ export type ModalPropsMap = {
   projectDetail: {
     projectId: string;
   };
+  imagePreview: {
+    src: string;
+  };
 };
 
 // 모달 타입을 자동 추론 하게 설정
