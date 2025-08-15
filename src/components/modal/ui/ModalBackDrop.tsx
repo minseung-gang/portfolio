@@ -8,7 +8,7 @@ interface ModalBackdropProps {
 
 const ModalBackDrop: React.FC<ModalBackdropProps> = ({ className }) => {
   const { closeModal } = useModalContext();
-  const modalBackdropCls = `fixed inset-0 bg-black opacity-25`;
+  const modalBackdropCls = `fixed inset-0 bg-black opacity-80`;
   return (
     <div
       role='presentation'
