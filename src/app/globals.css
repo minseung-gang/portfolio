@@ -11,6 +11,29 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+@media screen and (orientation: portrait) {
+  .rotate-screen {
+    display: flex;
+  }
+}
+.rotate-screen {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  background-color: v#000000;
+  overflow: hidden;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
 .orbitron {
   font-family: var(--font-orbitron);
 }
@@ -38,6 +61,10 @@ body::-webkit-scrollbar {
     top: -20px;
     animation: hover-float 1.5s ease-in-out infinite;
   }
+}
+
+svg:hover #modal-icon {
+  fill: #72767a;
 }
 
 svg:hover #svg {
