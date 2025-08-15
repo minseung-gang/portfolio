@@ -21,11 +21,13 @@ const ProjectCard = ({ project, projectId }: ProjectCardProps) => {
       onClick={() => openModal({ type: 'projectDetail', props: { projectId } })}
     >
       <div className='grid grid-rows-[1fr_1.2fr]'>
-        <img src={project.image} alt={project.title} width={329} height={185} />
+        <img className='w-full' src={project.image} alt={project.title} width={329} height={185} />
 
         <div className='grid items-stretch px-6 pt-6 pb-4'>
           <div>
-            <h3 className='mb-[10px] text-[clamp(16px,1.5vw,24px)] font-bold'>{project.title}</h3>
+            <h3 className='mb-[10px] text-[clamp(16px,1.5vw,24px)] font-bold lg:text-[24px]'>
+              {project.title}
+            </h3>
             <p className='text-[clamp(12px,1vw,14px)] leading-4'>{project.description}</p>
           </div>
           <div className='flex items-center gap-x-[5px]'>
