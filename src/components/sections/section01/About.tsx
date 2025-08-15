@@ -45,12 +45,12 @@ const About = ({ containerRef }: AboutProps) => {
   const aboutContentX = useTransform(x, (value) => `${value}vw`);
 
   // 자기소개 부분을 위로 올려보내는 애니메이션
-  const exitY = useTransform(aboutDetailScrollY, [0, 0.8, 1], [0, 0, 100]);
+  const exitY = useTransform(aboutDetailScrollY, [0, 0.8, 1], [0, 0, 50]);
   const aboutDetailExitY = useTransform(exitY, (value) => `-${value}vh`);
   const aboutDetailOpacity = useTransform(aboutDetailScrollY, [0, 0.8, 1], [1, 1, 0]);
 
   return (
-    <div className='relative h-[370svh] pt-40' ref={aboutContentRef}>
+    <div className='relative mt-[30vh] h-[370svh]' ref={aboutContentRef}>
       <motion.div className='sticky top-0 left-0 h-[100svh]'>
         <motion.div
           className='absolute top-0 left-0 z-5 mx-auto h-full w-full'
