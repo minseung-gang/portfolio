@@ -1,3 +1,5 @@
+import { ElementType } from 'react';
+
 export interface ProjectRoute {
   domain?: string;
   github: string;
@@ -11,7 +13,7 @@ export interface BaseProject {
   description: string;
   actions: {
     type: string;
-    icon: () => React.JSX.Element;
+    icon: React.ElementType;
     url?: string;
   }[];
   features: {
@@ -39,15 +41,21 @@ export interface BaseProject {
         content: string;
       }[];
     }[];
-  }[];
+  };
   screenShot?: {
     icon?: string;
     title?: string;
-    images: Record<string, unknown>;
+    images: string[];
   };
   result?: {
     icon: string;
     title: string;
     items: string[];
   };
+}
+
+export interface commonAction {
+  type: string;
+  icon: ElementType;
+  url?: string;
 }
