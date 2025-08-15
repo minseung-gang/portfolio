@@ -1,0 +1,10 @@
+export { default as Express } from '@/components/icons/Express';
+export { default as Figma } from '@/components/icons/Figma';
+export { default as Github } from '@/components/icons/Github';
+export { default as Javascript } from '@/components/icons/Javascript';
+export { default as Mysql } from '@/components/icons/Mysql';
+export { default as Nextjs } from '@/components/icons/Nextjs';
+export { default as Nodejs } from '@/components/icons/Nodejs';
+export { default as React } from '@/components/icons/React';
+export { default as Typescript } from '@/components/icons/Typescript';
+export { default as Link } from '@/components/icons/Link';
