@@ -32,7 +32,7 @@ const Index = () => {
   return (
     <div className='relative h-[350svh] pt-60' ref={sectionRef}>
       <div className='sticky top-0 left-0 h-[100svh]'>
-        <div className='flex h-full w-full flex-col items-center gap-y-[10vh] bg-[#000108] pt-[20%]'>
+        <div className='flex h-full w-full flex-col items-center gap-y-[10vh] bg-[#000108] px-5 pt-[20%]'>
           <h1 className='orbitron text-[clamp(25px,10vw,45px)] font-bold text-white'>Project</h1>
           <motion.div
             className='absolute top-1/2 left-1/2 aspect-square w-[100vw] -translate-x-1/2 -translate-y-1/2 rounded-full shadow-[0_0_6vw_1.5vw_rgba(43,19,231,0.65),0_0_3vw_0.5vw_#A358EB,0_0_8vw_4vw_rgba(58,40,198,0.65)]'
@@ -46,9 +46,9 @@ const Index = () => {
               clipPath: clipPath,
             }}
           >
-            <div className='max-w-container mx-auto h-full w-full py-[25vh]'>
+            <div className='max-w-container mx-auto h-full w-full px-5 py-[25vh]'>
               <h2 className='mb-15 text-[clamp(22px,2vw,34px)] font-bold'>프로젝트</h2>
-              <div className='grid grid-cols-4 gap-x-5'>
+              <div className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4'>
                 {PROJECT_DATA.map((project) => {
                   return (
                     <ProjectCard key={project.title} project={project} projectId={project.id} />
