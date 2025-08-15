@@ -2,7 +2,7 @@ name: Next.js Static Export & Deploy to S3
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   deploy:
@@ -37,7 +37,7 @@ jobs:
       # 5️⃣ S3에 업로드
       - name: Deploy to S3
         run: |
-          aws s3 sync ./${{ secrets.BUILD_DIRECTORY }} s3://${{ secrets.AWS_S3_BUCKET_NAME }} \
+          aws s3 sync ./out s3://${{ secrets.AWS_S3_BUCKET_NAME }} \
             --delete
 
       # 6️⃣ CloudFront 캐시 무효화
