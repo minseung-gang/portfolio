@@ -38,7 +38,7 @@ const Experience = () => {
         <div className='mt-[clamp(40px,10px,78px)]'>
           <ExperienceBlock
             title='Education'
-            data={EXPERIENCE_DATA.career}
+            data={EXPERIENCE_DATA.education}
             titleScale={educationTitleScale}
             titleOpacity={educationTitleOpacity}
             contentScale={educationContentsScale}
