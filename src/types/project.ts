@@ -2,7 +2,7 @@ import { ElementType } from 'react';
 
 export interface ProjectRoute {
   domain?: string;
-  github: string;
+  github?: string;
 }
 
 export interface BaseProject {

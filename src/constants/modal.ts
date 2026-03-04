@@ -21,6 +21,141 @@ export const COMMON_ACTIONS = {
   }),
 } as const;
 
+export const PROJECT_STORYNATION_CONTENTS = {
+  title: '스토리네이션(storynation)',
+  period: '2025-09 ~ 진행 중',
+  team: '4명(FE 1, BE 1, 기획자 1, 디자이너 1)',
+  teckStack: [
+    'React',
+    'Typescript',
+    'TailwindCSS',
+    'TanStack Query',
+    'Zustand',
+    'Nakama',
+  ],
+  description:
+    'LLM 기반 AI 캐릭터와 대화를 나누고, 호감도·TTS·이미지 해금 등 다양한 상호작용을 경험할 수 있는 채팅 서비스입니다.',
+  actions: [
+    COMMON_ACTIONS.CLOSE,
+    COMMON_ACTIONS.DOMAIN(PROJECT_ROUTE.storynation?.domain ?? '#'),
+  ],
+  features: {
+    icon: '⚙️',
+    title: '주요기능  및 특징',
+    items: [
+      '기존 네이티브로 구성되던 채팅방을 React WebView 기반 모바일 화면으로 전환',
+      'LLM 응답 수신 방식을 스트리밍으로 변경해 답변을 점진적으로 노출',
+      'AI 답변 완료 후 호감도 판독 AI를 추가 호출해 [AFFECTION], [IMAGE] 데이터를 후처리',
+      '호감도 분석 결과를 기반으로 경험치/레벨 및 멀티이미지 해금 상태를 즉시 UI에 반영',
+      'TTS 재생 흐름을 대화 UI와 연결해 몰입감 있는 대화 경험 구현',
+      'Nakama 기반 메시지 저장/동기화 및 updateChatMessage 연동으로 메시지 상태 일관성 유지',
+      'iOS·Android·Web 환경별 UI/동작 차이를 고려한 반응형 인터페이스 구현',
+    ],
+  },
+  contributions: {
+    icon: '💡',
+    title: '작업 기여도',
+    contents: [
+      {
+        icon: '🔹',
+        section: '네이티브 채팅 UI의 WebView 전환',
+        items: [
+          '기존 네이티브 기준 채팅 구조를 웹 기술 스택으로 재구성하고 모바일 WebView 동작 기준에 맞게 화면/상태 흐름을 정리',
+          'Native/Web 분기 구조와 플랫폼 감지 로직을 적용해 환경별 헤더·리스트·입력 UX를 분리 운영',
+        ],
+      },
+      {
+        icon: '🔹',
+        section: 'LLM 응답 스트리밍 방식 전환',
+        items: [
+          'POST/RESEND 이후 stream_key 기반 폴링 및 스트리밍 렌더링 흐름을 적용해 일괄 응답 구조를 전환',
+          '기존 14~15초 수준의 첫 답변 체감을 2~3초 수준으로 단축해 대기 경험을 개선',
+        ],
+      },
+      {
+        icon: '🔹',
+        section: 'AI 후처리 파이프라인(호감도 판독 AI) 구축',
+        items: [
+          'AI 본응답 완료 시 lastAiMessage를 트리거로 호감도 판독 API를 추가 호출하여 대화 결과를 재해석',
+          '판독 결과의 [AFFECTION], [IMAGE] 값을 파싱해 경험치 증가, 레벨업 이미지 선정, 멀티이미지 해금 분기를 자동 처리',
+          'saveChatData 및 스토어/캐시 업데이트를 통해 경험치·레벨·해금 상태를 서버와 UI에 동기화',
+        ],
+      },
+      {
+        icon: '🔹',
+        section: '렌더링/로딩 성능 최적화 및 QA',
+        items: [
+          '채팅방 렌더링 경로와 초기 로딩 흐름을 정리해 LCP를 3.52초에서 1.79초로 개선',
+          'iOS·Android·Web 환경별 입력, 뷰포트, 스크롤 이슈를 점검하고 안정 배포까지 대응',
+        ],
+      },
+    ],
+  },
+  result: {
+    icon: '🚀',
+    title: '성과',
+    items: [
+      '채팅방을 WebView 기반으로 전환해 모바일 앱 내 일관된 채팅 경험 제공',
+      'LLM 응답 스트리밍 전환으로 첫 답변 체감 시간을 14~15초에서 2~3초 수준으로 단축',
+      'AI 후처리(호감도 판독) 자동화로 경험치/레벨/멀티이미지 해금이 대화 결과와 실시간 연동',
+      'LCP 개선으로 초기 진입 경험을 향상하고 핵심 화면 도달 시간을 단축',
+    ],
+  },
+  troubleShooting: {
+    icon: '🚨',
+    title: '트러블 슈팅',
+    contents: [
+      {
+        icon: '🔹',
+        title: '스트리밍 응답 중 스크롤/렌더링 끊김 문제',
+        details: [
+          {
+            type: '[문제점]',
+            content:
+              '스트리밍 응답이 빠르게 누적될 때 메시지 영역 재렌더링이 과도하게 발생해 스크롤 끊김과 입력 지연이 발생',
+          },
+          {
+            type: '[해결]',
+            content:
+              '메시지 렌더링 단위를 분리하고 상태 업데이트 타이밍을 조정해 불필요한 전체 렌더링을 줄여 상호작용 지연을 완화',
+          },
+          {
+            type: '[회고]',
+            content:
+              '실시간 UI는 기능 구현보다 업데이트 빈도와 렌더링 비용을 함께 설계해야 사용자 체감 품질을 확보할 수 있음을 확인',
+          },
+        ],
+      },
+      {
+        icon: '🔹',
+        title: 'WebView 환경별 키보드/뷰포트 차이',
+        details: [
+          {
+            type: '[문제점]',
+            content:
+              'Unity/Vuplex 기반 WebView와 일반 모바일 브라우저 간 키보드 노출 시점 및 뷰포트 계산 방식 차이로 입력 영역/스크롤 위치가 흔들리는 문제가 발생',
+          },
+          {
+            type: '[해결]',
+            content:
+              'platform 파라미터, UserAgent, visualViewport를 활용한 분기와 보정 로직을 적용하고 Native/Web 컴포넌트를 분리해 레이아웃 안정성을 확보',
+          },
+          {
+            type: '[회고]',
+            content:
+              '웹뷰 프로젝트는 UI 구현 자체보다 플랫폼 감지·입력·스크롤 규칙을 초기에 명문화하는 것이 품질 확보에 더 중요하다는 점을 배움',
+          },
+        ],
+      },
+    ],
+  },
+  screenShot: {
+    icon: '📌',
+    title: '스크린샷',
+    images: IMAGES_ROUTE.project.storynation.images,
+  },
+};
+
 export const PROJECT_HAPPYPILL_CONTENTS = {
   title: '해피필(happyPill)',
   period: '2025-07 ~ 진행 중',
@@ -30,8 +165,7 @@ export const PROJECT_HAPPYPILL_CONTENTS = {
     '바쁜 현대 사회에서 현대인들이 신경쓸 수 있도록 영양제를 주기적으로 배송해주는 정기 구독 서비스입니다.',
   actions: [
     COMMON_ACTIONS.CLOSE,
-    COMMON_ACTIONS.GITHUB(PROJECT_ROUTE.happyPill?.github),
-    COMMON_ACTIONS.DOMAIN(PROJECT_ROUTE.happyPill?.domain ?? '#'),
+    COMMON_ACTIONS.GITHUB(PROJECT_ROUTE.happyPill?.github ?? '#'),
   ],
 
   features: {
@@ -55,7 +189,7 @@ export const PROJECT_HAPPYPILL_CONTENTS = {
         icon: '🔹',
         section: '커스텀 Carousel 슬라이더 구현',
         items: [
-          'AI을 활용하여 마우스 드래그와 무한스크롤로 사용자가 직관적이고 부드럽게 콘텐츠를 탐색할 수 있도록 UX 개선',
+          '마우스 드래그와 무한스크롤로 사용자가 직관적이고 부드럽게 콘텐츠를 탐색할 수 있도록 UX 개선',
           '3가지 슬라이드 모드(peek/center/basic)를 통해 콘텐츠 특성에 맞는 최적의 시각적 경험 제공',
           'transform과 드래그 offset 계산을 통해 자연스러운 인덱스 전환 및 슬라이딩 애니메이션 처리',
         ],
@@ -266,7 +400,7 @@ export const PROJECT_PULBATTE_CONTENTS = {
   teckStack: ['React', 'Typescript', 'Redux', 'StyledComponents', 'React Query'],
   description:
     '식물에 대한 정보를 공유하는 공간입니다. 테스트를 통해 성향에 맞는 반려식물을 소개 받거나, 함께하는 식물과의 일상을 기록할 수 있습니다.',
-  actions: [COMMON_ACTIONS.CLOSE, COMMON_ACTIONS.GITHUB(PROJECT_ROUTE.pulbatte.github)],
+  actions: [COMMON_ACTIONS.CLOSE, COMMON_ACTIONS.GITHUB(PROJECT_ROUTE.pulbatte.github ?? '#')],
   features: {
     icon: '⚙️',
     title: '주요기능  및 특징',
@@ -332,7 +466,7 @@ export const PROJECT_PORTFOLIO_CONTENTS = {
     '프론트엔드 개발자 강민승의 포트폴리오 사이트입니다. 더 나은 사용자 경험을 위해 꾸준히 개선하고 있습니다.',
   actions: [
     COMMON_ACTIONS.CLOSE,
-    COMMON_ACTIONS.GITHUB(PROJECT_ROUTE.portfolio.github),
+    COMMON_ACTIONS.GITHUB(PROJECT_ROUTE.portfolio.github ?? '#'),
     COMMON_ACTIONS.DOMAIN(PROJECT_ROUTE.portfolio.domain ?? '#'),
   ],
   features: {

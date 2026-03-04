@@ -7,6 +7,7 @@ import {
   PROJECT_HAPPYPILL_CONTENTS,
   PROJECT_PORTFOLIO_CONTENTS,
   PROJECT_PULBATTE_CONTENTS,
+  PROJECT_STORYNATION_CONTENTS,
 } from '@/constants/modal';
 import { BaseProject, commonAction } from '@/types/project';
 import useModal from '@/hooks/useModal';
@@ -14,6 +15,7 @@ import useModal from '@/hooks/useModal';
 type ProjectKey = keyof typeof PROJECT_MAP;
 
 export const PROJECT_MAP: Record<string, BaseProject> = {
+  storynation: PROJECT_STORYNATION_CONTENTS,
   happyPill: PROJECT_HAPPYPILL_CONTENTS,
   georim: PROJECT_GEORIM_CONTENTS,
   pulbatte: PROJECT_PULBATTE_CONTENTS,
@@ -157,15 +159,15 @@ const ProjectDetailModal = ({ projectId }: ProjectDetailModalProps) => {
                   <p> {project.screenShot.icon}</p>
                   <h3>{project.screenShot.title}</h3>
                 </div>
-                <div className='grid w-full grid-cols-3 grid-rows-[220px] gap-x-3 pt-[15px]'>
+                <div className='grid w-full grid-cols-2 gap-3 pt-[15px] md:grid-cols-3'>
                   {project.screenShot.images.map((image, idx) => (
                     <div
                       key={image + idx}
-                      className='cursor-pointer border-1 border-[#d4d4d4]'
+                      className='flex h-[220px] cursor-pointer items-center justify-center overflow-hidden rounded-sm border-1 border-[#d4d4d4] bg-[#F9FAFB]'
                       onClick={() => openModal({ type: 'imagePreview', props: { src: image } })}
                     >
                       <img
-                        className='h-full object-cover transition hover:opacity-80'
+                        className='h-full w-full object-contain transition hover:opacity-80'
                         src={image}
                         width={390}
                         height={239}

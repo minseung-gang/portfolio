@@ -14,14 +14,16 @@ const ImagePreviewModal = ({ src }: ImagePreviewModalProps) => {
   return (
     <Modal className='flex items-center justify-center backdrop-blur-sm'>
       <ModalBackDrop />
-      <ModalContent className='top-1/2 w-[70vw] -translate-y-1/2'>
+      <ModalContent className='top-1/2 w-[min(92vw,1200px)] max-w-[1200px] -translate-y-1/2 overflow-visible rounded-md bg-[#F9FAFB]'>
         <button
           onClick={closeModal}
           className='transform-x-1/2 absolute -top-[7vh] left-1/2 cursor-pointer'
         >
           <Close size={50} className='text-[#949494] hover:text-[#72767a]' />
         </button>
-        <img src={src} alt='상세이미지' className='w-full object-contain' />
+        <div className='flex h-[82vh] w-full items-center justify-center p-4 md:p-6'>
+          <img src={src} alt='상세이미지' className='h-full w-full object-contain' />
+        </div>
       </ModalContent>
     </Modal>
   );

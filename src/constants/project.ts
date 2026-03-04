@@ -3,6 +3,14 @@ import { IMAGES_ROUTE } from './common';
 
 export const PROJECT_DATA = [
   {
+    id: 'storynation',
+    title: '스토리네이션',
+    description:
+      'LLM 기반 AI 캐릭터와 실시간 대화를 나누고, 호감도·TTS·이미지 해금 등 상호작용을 제공하는 AI 채팅 플랫폼입니다.',
+    tags: ['반응형', '사내 서비스'],
+    image: IMAGES_ROUTE.project.storynation.thumbnail,
+  },
+  {
     id: 'happyPill',
     title: '해피필',
     description:
@@ -34,8 +42,10 @@ export const PROJECT_DATA = [
 ];
 
 export const PROJECT_ROUTE: Record<string, ProjectRoute> = {
+  storynation:{
+    domain: 'https://www.storynation.co.kr/'
+  },
   happyPill: {
-    domain: 'https://happy-pill-front-ulbp.vercel.app/',
     github: 'https://github.com/happy-pill/happyPill_Front',
   },
   georim: {

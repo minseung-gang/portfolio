@@ -1,6 +1,17 @@
 export const EXPERIENCE_DATA = {
   career: [
     {
+      company: '우주문방구',
+      period: '2025.09 - 재직중',
+      role: '프론트엔드',
+      description: [
+        'LLM 기반 AI 캐릭터 채팅 서비스의 프론트엔드 개발 및 채팅방 개발 주도',
+        '스트리밍 모드 도입으로 AI 첫 답변 체감 시간을 14~15초에서 2~3초 수준으로 단축',
+        '채팅방 렌더링/로딩 흐름 최적화로 LCP를 3.52초에서 1.79초로 개선',
+        'Nakama 기반 메시지 저장/동기화 및 iOS·Android·Web 환경 QA 이슈 대응 후 안정 배포',
+      ],
+    },
+    {
       company: '더그릿',
       period: '2023.11 - 2024.07',
       role: '프론트엔드',

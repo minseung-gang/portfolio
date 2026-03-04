@@ -9,6 +9,17 @@ export const IMAGES_ROUTE = {
   },
   profile: '/images/profile.webp',
   project: {
+    storynation:{
+      thumbnail: '/images/project/storynation/storynation_thumbnail.webp',
+      images: [
+        '/images/project/storynation/storynation_m_01.gif',
+        '/images/project/storynation/storynation_m_02.gif',
+        '/images/project/storynation/storynation_m_03.gif',
+        '/images/project/storynation/storynation_m_04.gif',
+        '/images/project/storynation/storynation_w_01.gif',
+        '/images/project/storynation/storynation_w_02.gif',
+      ],
+    },
     happyPill: {
       thumbnail: '/images/project/happyPill/happyPill_thumbnail.webp',
       images: [

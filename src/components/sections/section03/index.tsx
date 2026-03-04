@@ -46,7 +46,7 @@ const Index = () => {
               clipPath: clipPath,
             }}
           >
-            <div className='max-w-container mx-auto h-full w-full px-5 py-[25vh]'>
+            <div className='max-w-container mx-auto h-full w-full px-5 py-[12vh]'>
               <h2 className='mb-15 text-[clamp(22px,2vw,34px)] font-bold'>프로젝트</h2>
               <div className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4'>
                 {PROJECT_DATA.map((project) => {

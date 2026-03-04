@@ -17,11 +17,11 @@ const ProjectCard = ({ project, projectId }: ProjectCardProps) => {
 
   return (
     <div
-      className='card relative overflow-hidden rounded-md border-1 border-[#bebebe] shadow-[2px_2px_8px_2px_rgba(0,0,0,0.2)]'
+      className='card relative overflow-hidden rounded-md border-1 border-[#e9e9e9] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.2)]'
       onClick={() => openModal({ type: 'projectDetail', props: { projectId } })}
     >
       <div className='grid grid-rows-[1fr_1.2fr]'>
-        <img className='w-full' src={project.image} alt={project.title} width={329} height={185} />
+        <img className='w-full aspect-video object-cover object-top' src={project.image} alt={project.title} width={329} height={185} />
 
         <div className='grid items-stretch px-6 pt-6 pb-4'>
           <div>

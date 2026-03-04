@@ -9,7 +9,7 @@ const Experience = () => {
 
   const { scrollYProgress: sectionScroll } = useScroll({
     target: sectionRef,
-    offset: ['start 70%', 'end 10%'],
+    offset: ['start 50%', 'end 20%'],
   });
 
   const careerTitleScale = useTransform(sectionScroll, [0, 0.2], [0.7, 1]);
@@ -23,9 +23,9 @@ const Experience = () => {
   const educationContentOpacity = useTransform(sectionScroll, [0.2, 0.35], [0, 1]);
 
   return (
-    <div className='relative h-[100svh]' ref={sectionRef}>
+    <div className='relative h-[140svh]' ref={sectionRef}>
       <div className='sticky top-0 left-0 mt-90'>
-        <div className='pt-50'>
+        <div className='pt-30'>
           <ExperienceBlock
             title='Career'
             data={EXPERIENCE_DATA.career}
