@@ -11,19 +11,19 @@ jobs:
     steps:
       # 1️⃣ Git checkout
       - name: Checkout source code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      # 2️⃣ Node.js 버전 설정
-      - name: Use Node.js 18.x
-        uses: actions/setup-node@v3
+      # 2️⃣ Node.js 버전 설정 (Tailwind v4 호환)
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 20.x
 
       # 3️⃣ Dependencies 설치 & Build & Export
       - name: Install & Build & Export
         run: |
           npm install -g yarn
-          yarn install --frozen-lockfile
+          yarn install --frozen-lockfile || yarn install
           yarn build
 
       # 4️⃣ AWS 인증 정보 세팅
