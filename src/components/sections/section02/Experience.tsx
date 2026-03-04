@@ -23,9 +23,9 @@ const Experience = () => {
   const educationContentOpacity = useTransform(sectionScroll, [0.2, 0.35], [0, 1]);
 
   return (
-    <div className='relative h-[140svh]' ref={sectionRef}>
-      <div className='sticky top-0 left-0 mt-90'>
-        <div className='pt-30'>
+    <div className='relative min-h-[140svh]' ref={sectionRef}>
+      <div className='sticky top-0 left-0 h-[100svh]'>
+        <div className='mx-auto flex h-full w-full max-w-container flex-col justify-center px-5 py-[clamp(24px,6vh,72px)]'>
           <ExperienceBlock
             title='Career'
             data={EXPERIENCE_DATA.career}
@@ -34,16 +34,16 @@ const Experience = () => {
             contentScale={careerContentScale}
             contentOpacity={careerContentOpacity}
           />
-        </div>
-        <div className='mt-[clamp(40px,10px,78px)]'>
-          <ExperienceBlock
-            title='Education'
-            data={EXPERIENCE_DATA.education}
-            titleScale={educationTitleScale}
-            titleOpacity={educationTitleOpacity}
-            contentScale={educationContentsScale}
-            contentOpacity={educationContentOpacity}
-          />
+          <div className='mt-[clamp(28px,4vh,64px)]'>
+            <ExperienceBlock
+              title='Education'
+              data={EXPERIENCE_DATA.education}
+              titleScale={educationTitleScale}
+              titleOpacity={educationTitleOpacity}
+              contentScale={educationContentsScale}
+              contentOpacity={educationContentOpacity}
+            />
+          </div>
         </div>
       </div>
     </div>
