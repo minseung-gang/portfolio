@@ -10,7 +10,7 @@ export const IMAGES_ROUTE = {
   profile: '/images/profile.webp',
   project: {
     storynation:{
-      thumbnail: '/images/project/storynation/storynation_thumbnail.webp',
+      thumbnail: '/images/project/storynation/storynation_thumbnail.jpg',
       images: [
         '/images/project/storynation/storynation_m_01.gif',
         '/images/project/storynation/storynation_m_02.gif',
