@@ -158,7 +158,7 @@ export const PROJECT_STORYNATION_CONTENTS = {
 
 export const PROJECT_HAPPYPILL_CONTENTS = {
   title: '해피필(happyPill)',
-  period: '2025-07 ~ 진행 중',
+  period: '2025-06 ~ 2025-09',
   team: '6명(FE 2, BE 3, 디자이너 1)',
   teckStack: ['React', 'TailwindCSS', 'Typescript', 'React Query', 'Zustand', 'HookForm', 'Zod'],
   description:
