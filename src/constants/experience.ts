@@ -16,10 +16,10 @@ export const EXPERIENCE_DATA = {
       period: '2023.11 - 2024.07',
       role: '프론트엔드',
       description: [
-        '사내 어플리케이션의 페이지 단위 컴포넌트 설계 및 개발',
-        '회사 홈페이지 프론트엔드 유지보수 및 기능 개선',
-        'Node.js 및 Database(MySQL) 학습 및 실제 서비스에 적용',
-        '기획자, 디자이너와 협업하여 UI 흐름 개선 및 사용자 경험 향상에 기여',
+        'React/TypeScript 기반 부동산 회사 소개 반응형 웹사이트 프론트엔드 전담 개발',
+        'Framer-motion을 활용한 애니메이션 구현으로 정적 페이지의 시각적 몰입도 개선',
+        'Intersection Observer API 기반 무한 스크롤 및 Skeleton UI 적용으로 사용자 경험 최적화',
+        'Node.js/Express RESTful API 및 JWT 인증 시스템 구축, AWS EC2 + Nginx로 직접 배포',
       ],
     },
     {
